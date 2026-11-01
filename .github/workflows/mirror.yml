@@ -1,0 +1,15 @@
+name: Mirror to Gitee
+on: [push, workflow_dispatch]
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/fangtang951210
+          dst: gitee/cubesugar951210
+          dst_key: ${{ secrets.DST_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: xiaomao-illustrations
+          force_update: true
+          timeout: '10m'
